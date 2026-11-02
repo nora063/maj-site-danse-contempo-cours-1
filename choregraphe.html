@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiche – Mouvement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="menu">
+    <a href="index.html" class="logo">Mouvement</a>
+    <div class="liens">
+      <a href="index.html#choregraphes">← Tous les chorégraphes</a>
+    </div>
+  </nav>
+
+  <header class="fiche-hero">
+    <p class="etiquette" id="infos"></p>
+    <h1 id="nom"></h1>
+    <p class="sous-titre" id="accroche"></p>
+  </header>
+
+  <main class="fiche">
+    <section class="bloc-fiche">
+      <h2>Biographie</h2>
+      <div id="bio"></div>
+    </section>
+
+    <section class="bloc-fiche">
+      <h2>Son approche</h2>
+      <p id="approche"></p>
+    </section>
+
+    <section class="bloc-fiche">
+      <h2>Œuvres marquantes</h2>
+      <ul class="oeuvres" id="oeuvres"></ul>
+    </section>
+
+    <section class="bloc-fiche">
+      <h2>Repères</h2>
+      <ol class="reperes" id="reperes"></ol>
+    </section>
+
+    <div class="precedent-suivant" id="navigation"></div>
+  </main>
+
+  <footer>
+    <p class="logo">Mouvement</p>
+    <p>Un site dédié à la danse contemporaine</p>
+  </footer>
+
+  <script>
+    const choregraphes = {
+
+      bausch: {
+        nom: "Pina Bausch",
+        infos: "Allemagne · 1940 – 2009",
+        accroche: "Celle qui a fait entrer la vie, ses peurs et ses désirs sur scène.",
+        bio: [
+          "Née à Solingen en 1940, Pina Bausch se forme à la Folkwang Hochschule d’Essen auprès de Kurt Jooss, puis poursuit ses études à New York. En 1973, elle prend la direction du ballet de Wuppertal, qui devient le Tanztheater Wuppertal, sa compagnie jusqu’à sa mort en 2009.",
+          "Elle y invente un théâtre dansé où les danseurs parlent, chantent, rient et pleurent. Pour créer, elle posait des questions aux interprètes et construisait ses pièces à partir de leurs réponses, de leurs souvenirs et de leurs gestes du quotidien."
+        ],
+        approche: "Répétitions, décors spectaculaires (terre, fleurs, eau), gestes simples portés à l’extrême : sa danse parle d’amour, de solitude et des rapports entre les femmes et les hommes.",
+        oeuvres: [
+          ["Le Sacre du printemps", "1975", "Sur la musique de Stravinsky, un plateau recouvert de terre où une communauté désigne sa victime."],
+          ["Café Müller", "1978", "Une pièce intime et poignante dans un café plein de chaises, qui ouvre le film Parle avec elle de Pedro Almodóvar."],
+          ["Kontakthof", "1978", "Une réflexion sur la séduction et la timidité, reprise ensuite avec des seniors et des adolescents."],
+          ["Nelken", "1982", "Un champ d’œillets artificiels pour un spectacle à la fois drôle et cruel."]
+        ],
+        reperes: [
+          ["1940", "Naissance à Solingen"],
+          ["1973", "Direction du ballet de Wuppertal, futur Tanztheater"],
+          ["1975", "Création du Sacre du printemps"],
+          ["2009", "Décès à Wuppertal"],
+          ["2011", "Sortie du film Pina de Wim Wenders"]
+        ]
+      },
+
+      cunningham: {
+        nom: "Merce Cunningham",
+        infos: "États-Unis · 1919 – 2009",
+        accroche: "Le chorégraphe qui a laissé le hasard danser.",
+        bio: [
+          "Né en 1919 dans l’État de Washington, Merce Cunningham danse dès 1939 dans la compagnie de Martha Graham. Il la quitte en 1945 pour explorer sa propre voie.",
+          "En 1953, il fonde la Merce Cunningham Dance Company, avec laquelle il travaille pendant plus de cinquante ans. Son compagnon et collaborateur, le compositeur John Cage, en est le directeur musical."
+        ],
+        approche: "Danse, musique et décors sont créés séparément et ne se rencontrent que le soir de la première. Il utilise le hasard (lancers de pièces, tirages au sort) pour composer l’ordre des mouvements, et il s’intéresse plus tard à l’ordinateur pour chorégraphier.",
+        oeuvres: [
+          ["Summerspace", "1958", "Une danse légère dont le décor et les costumes pointillistes sont signés Robert Rauschenberg."],
+          ["RainForest", "1968", "Des ballons argentés d’Andy Warhol, les Silver Clouds, flottent sur scène."],
+          ["Beach Birds", "1991", "Une pièce inspirée du comportement des oiseaux de mer."],
+          ["Biped", "1999", "Des figures numériques créées par capture de mouvement dialoguent avec les danseurs."]
+        ],
+        reperes: [
+          ["1919", "Naissance à Centralia"],
+          ["1939", "Entre dans la compagnie de Martha Graham"],
+          ["1953", "Fonde sa propre compagnie"],
+          ["1999", "Création de Biped"],
+          ["2009", "Décès à New York"],
+          ["2011", "Dissolution de la compagnie, comme il l’avait prévu"]
+        ]
+      },
+
+      forsythe: {
+        nom: "William Forsythe",
+        infos: "États-Unis · né en 1949",
+        accroche: "Celui qui a fait exploser les lignes du ballet classique.",
+        bio: [
+          "Né à New York en 1949, William Forsythe danse au Joffrey Ballet puis au Ballet de Stuttgart, où il commence à chorégraphier dans les années 1970.",
+          "De 1984 à 2004, il dirige le Ballett Frankfurt, puis fonde The Forsythe Company, active de 2005 à 2015. Il reste l’un des chorégraphes les plus influents du monde du ballet."
+        ],
+        approche: "Il garde la technique classique mais la pousse hors de son axe : déséquilibres, vitesse, désordre organisé. Il invente aussi des outils pour transmettre sa pensée du mouvement, comme le projet Improvisation Technologies (1999).",
+        oeuvres: [
+          ["Artifact", "1984", "Sa première grande création à la tête du Ballett Frankfurt."],
+          ["In the Middle, Somewhat Elevated", "1987", "Créée pour le Ballet de l’Opéra de Paris, une pièce emblématique sur une musique de Thom Willems."],
+          ["One Flat Thing, reproduced", "2000", "Vingt tables, quatorze danseurs et une chorégraphie d’une grande précision."],
+          ["Blake Works I", "2016", "Des pas de ballet sur des chansons de James Blake, pour l’Opéra de Paris."]
+        ],
+        reperes: [
+          ["1949", "Naissance à New York"],
+          ["1973", "Rejoint le Ballet de Stuttgart"],
+          ["1984", "Prend la direction du Ballett Frankfurt"],
+          ["1987", "Création de In the Middle, Somewhat Elevated"],
+          ["2005", "Fonde The Forsythe Company"]
+        ]
+      },
+
+      dekeersmaeker: {
+        nom: "Anne Teresa De Keersmaeker",
+        infos: "Belgique · née en 1960",
+        accroche: "La danse comme architecture, entre mathématiques et musique.",
+        bio: [
+          "Née en 1960 en Belgique, Anne Teresa De Keersmaeker étudie à l’école Mudra à Bruxelles, puis à la Tisch School of the Arts de New York.",
+          "En 1982, elle crée Fase, four movements to the music of Steve Reich, puis fonde la compagnie Rosas en 1983. En 1995, elle crée à Bruxelles l’école P.A.R.T.S., aujourd’hui reconnue dans le monde entier."
+        ],
+        approche: "Ses pièces s’appuient sur des structures précises : cercles, spirales, répétitions. Elle chorégraphie souvent à partir de la musique (Steve Reich, Bach, Bartók) et la lit comme un plan qu’elle traduit en gestes.",
+        oeuvres: [
+          ["Fase, four movements to the music of Steve Reich", "1982", "Quatre mouvements où la répétition crée de légers décalages hypnotiques."],
+          ["Rosas danst Rosas", "1983", "Quatre danseuses, des chaises et des gestes du quotidien portés à l’extrême."],
+          ["Drumming", "1998", "Une pièce de groupe sur la musique percussive de Steve Reich."]
+        ],
+        reperes: [
+          ["1960", "Naissance en Belgique"],
+          ["1982", "Création de Fase"],
+          ["1983", "Fondation de la compagnie Rosas"],
+          ["1995", "Fondation de l’école P.A.R.T.S."]
+        ]
+      },
+
+      naharin: {
+        nom: "Ohad Naharin",
+        infos: "Israël · né en 1952",
+        accroche: "Le chorégraphe qui a inventé un langage fondé sur la sensation.",
+        bio: [
+          "Né en 1952 dans un kibbutz en Israël, Ohad Naharin découvre la danse relativement tard. Il rejoint la Batsheva Dance Company en 1974, puis part à New York, où il étudie à la Juilliard School et à la School of American Ballet, et danse dans la compagnie de Martha Graham.",
+          "De retour en Israël, il prend la direction artistique de la Batsheva en 1990. Il y développe une compagnie de renommée internationale et un langage de mouvement qui porte le nom de Gaga."
+        ],
+        approche: "Gaga n’est pas une technique codée mais une manière d’écouter son corps : on suit des images (flotter, se liquéfier, s’étirer) pour trouver de nouvelles sensations. Ses pièces mêlent énergie brute, humour et grandes scènes de groupe.",
+        oeuvres: [
+          ["Minus 16", "1999", "Un montage d’extraits de ses pièces, avec une scène célèbre où les danseurs invitent des spectateurs à danser."],
+          ["Decadance", "2000", "Une œuvre recomposée à partir de fragments de ses créations, adaptée à chaque lieu."],
+          ["Hora", "2009", "Une pièce de groupe sur des arrangements électroniques d’Isao Tomita."]
+        ],
+        reperes: [
+          ["1952", "Naissance en Israël"],
+          ["1974", "Rejoint la Batsheva Dance Company"],
+          ["1990", "Devient directeur artistique de la Batsheva"],
+          ["1999", "Création de Minus 16"],
+          ["2009", "Création de Hora"]
+        ]
+      },
+
+      pite: {
+        nom: "Crystal Pite",
+        infos: "Canada · née en 1970",
+        accroche: "Des pièces de groupe où les corps forment un seul organisme.",
+        bio: [
+          "Née en 1970 à Terrace, en Colombie-Britannique, Crystal Pite danse à Ballet British Columbia, puis au Ballett Frankfurt de William Forsythe à partir de 1996.",
+          "En 2002, elle fonde à Vancouver la compagnie Kidd Pivot. Elle crée aussi pour de grandes compagnies, dont le Nederlands Dans Theater, le Ballet de l’Opéra de Paris et le Royal Ballet de Londres."
+        ],
+        approche: "Elle manie les groupes de danseurs comme une seule matière : vagues, essaims, ensembles qui se resserrent et se dispersent. Ses pièces mêlent danse, texte et lumière, et abordent souvent des thèmes intimes ou sociaux.",
+        oeuvres: [
+          ["Emergence", "2009", "Pour le Ballet national du Canada, un essaim de danseurs inspiré de l’intelligence collective des insectes."],
+          ["Betroffenheit", "2015", "Créée avec Jonathon Young, une pièce sur le traumatisme et la dépendance, récompensée par un Olivier Award."],
+          ["The Seasons’ Canon", "2016", "Pour l’Opéra de Paris, sur Vivaldi recomposé par Max Richter."],
+          ["Flight Pattern", "2017", "Une pièce sur l’exil et la foule, créée pour le Royal Ballet."]
+        ],
+        reperes: [
+          ["1970", "Naissance à Terrace, au Canada"],
+          ["1996", "Rejoint le Ballett Frankfurt"],
+          ["2002", "Fonde la compagnie Kidd Pivot"],
+          ["2015", "Création de Betroffenheit"],
+          ["2016", "The Seasons’ Canon pour l’Opéra de Paris"]
+        ]
+      }
+
+    };
+
+    // On lit l'identifiant dans l'adresse : choregraphe.html?id=bausch
+    const id = new URLSearchParams(window.location.search).get("id");
+    const c = choregraphes[id];
+
+    if (!c) {
+      window.location.href = "index.html#choregraphes";
+    } else {
+      document.title = c.nom + " – Mouvement";
+      document.getElementById("nom").textContent = c.nom;
+      document.getElementById("infos").textContent = c.infos;
+      document.getElementById("accroche").textContent = c.accroche;
+      document.getElementById("approche").textContent = c.approche;
+
+      document.getElementById("bio").innerHTML =
+        c.bio.map(p => `<p>${p}</p>`).join("");
+
+      document.getElementById("oeuvres").innerHTML =
+        c.oeuvres.map(o => `<li><span class="annee">${o[1]}</span><strong>${o[0]}</strong>${o[2]}</li>`).join("");
+
+      document.getElementById("reperes").innerHTML =
+        c.reperes.map(r => `<li><b>${r[0]}</b>${r[1]}</li>`).join("");
+
+      // Liens vers le chorégraphe précédent et suivant
+      const ids = Object.keys(choregraphes);
+      const i = ids.indexOf(id);
+      const prev = ids[(i + ids.length - 1) % ids.length];
+      const next = ids[(i + 1) % ids.length];
+
+      document.getElementById("navigation").innerHTML =
+        `<a href="choregraphe.html?id=${prev}">← ${choregraphes[prev].nom}</a>` +
+        `<a href="choregraphe.html?id=${next}">${choregraphes[next].nom} →</a>`;
+    }
+  </script>
+  <script src="danseurs.js"></script>
+</body>
+</html>

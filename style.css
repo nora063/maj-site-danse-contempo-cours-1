@@ -1,0 +1,458 @@
+:root {
+  --creme: #f7f1e8;
+  --sable: #eadfce;
+  --taupe: #a8927a;
+  --brun: #2b211a;
+  --rouille: #b0583a;
+  --titre: "Cormorant Garamond", Georgia, serif;
+  --corps: "Jost", "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: var(--corps);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--brun);
+  background: var(--creme);
+}
+
+/* ---------- Menu ---------- */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 2.5rem;
+  background: rgba(247, 241, 232, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(43, 33, 26, 0.1);
+}
+
+.logo {
+  font-family: var(--titre);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--brun);
+  text-decoration: none;
+}
+
+.liens a {
+  margin-left: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brun);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.liens a:hover { color: var(--rouille); }
+
+/* ---------- Bandeau d'accueil ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: radial-gradient(circle at 50% 40%, var(--creme), var(--sable));
+}
+
+.ruban {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ruban path {
+  fill: none;
+  stroke: var(--rouille);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0.55;
+  animation: trace 4s ease-out forwards;
+}
+
+.ruban path:nth-child(2) { animation-delay: 0.4s; opacity: 0.4; }
+.ruban path:nth-child(3) { animation-delay: 0.8s; opacity: 0.25; }
+
+@keyframes trace { to { stroke-dashoffset: 0; } }
+
+.hero > :not(.ruban) { position: relative; animation: apparition 1s ease both; }
+.hero h1 { animation-delay: 0.15s; }
+.hero .sous-titre { animation-delay: 0.3s; }
+.hero .bouton { animation-delay: 0.45s; }
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+.etiquette {
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--rouille);
+}
+
+.hero h1 {
+  font-family: var(--titre);
+  font-weight: 500;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em { font-style: italic; color: var(--rouille); }
+
+.sous-titre {
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+  font-size: 1.15rem;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.95rem 2.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--creme);
+  text-decoration: none;
+  background: var(--brun);
+  border-radius: 999px;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.bouton:hover { background: var(--rouille); transform: translateY(-3px); }
+
+/* ---------- Bandeau défilant ---------- */
+.bandeau {
+  overflow: hidden;
+  padding: 1.1rem 0;
+  background: var(--brun);
+  color: var(--sable);
+}
+
+.defile {
+  display: flex;
+  width: max-content;
+  animation: defile 35s linear infinite;
+}
+
+.defile span {
+  padding: 0 2rem;
+  font-family: var(--titre);
+  font-style: italic;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.defile span::after { content: "✦"; margin-left: 4rem; color: var(--rouille); font-style: normal; }
+
+@keyframes defile { to { transform: translateX(-50%); } }
+
+/* ---------- Sections ---------- */
+.bloc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 1rem;
+}
+
+.bloc h2 {
+  font-family: var(--titre);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.centre { text-align: center; }
+.centre p { max-width: 640px; margin: 0 auto; font-size: 1.15rem; }
+
+/* ---------- Cartes ---------- */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.carte {
+  position: relative;
+  padding: 2.2rem 2rem;
+  background: var(--sable);
+  border-radius: 140px 140px 20px 20px;
+  transition: background 0.35s, color 0.35s, transform 0.35s;
+}
+
+.carte:hover {
+  background: var(--brun);
+  color: var(--creme);
+  transform: translateY(-8px);
+}
+
+.num {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: var(--titre);
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--rouille);
+}
+
+.carte h3 {
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.infos {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.oeuvre {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(168, 146, 122, 0.5);
+  font-family: var(--titre);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--rouille);
+}
+
+.carte:hover .oeuvre { color: #e9a283; }
+
+/* ---------- Pied de page ---------- */
+footer {
+  margin-top: 6rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: var(--sable);
+}
+
+footer .logo { margin-bottom: 0.3rem; }
+
+/* ---------- Téléphone ---------- */
+@media (max-width: 600px) {
+  .menu { padding: 1rem 1.2rem; }
+  .liens a { margin-left: 1rem; }
+  .carte { border-radius: 100px 100px 20px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .ruban path { stroke-dashoffset: 0; }
+}
+/* ---------- Liens des cartes ---------- */
+.lien-fiche {
+  display: block;
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brun);
+  text-decoration: none;
+}
+
+/* Rend toute la carte cliquable */
+.lien-fiche::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.carte:hover .lien-fiche { color: var(--creme); }
+
+/* ---------- Pages des chorégraphes ---------- */
+.fiche-hero {
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  background: radial-gradient(circle at 50% 30%, var(--creme), var(--sable));
+}
+
+.fiche-hero h1 {
+  font-family: var(--titre);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 1.05;
+  margin: 0.5rem 0 1.2rem;
+}
+
+.fiche-hero .sous-titre {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--titre);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--rouille);
+}
+
+.fiche {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0;
+}
+
+.bloc-fiche { margin-bottom: 3.5rem; }
+
+.bloc-fiche h2 {
+  font-family: var(--titre);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(168, 146, 122, 0.5);
+}
+
+.bloc-fiche p { margin-bottom: 1rem; font-size: 1.1rem; }
+
+.oeuvres { list-style: none; display: grid; gap: 1rem; }
+
+.oeuvres li {
+  padding: 1.2rem 1.5rem;
+  background: var(--sable);
+  border-left: 4px solid var(--rouille);
+  border-radius: 0 16px 16px 0;
+}
+
+.oeuvres strong {
+  display: block;
+  font-family: var(--titre);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.oeuvres .annee {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--rouille);
+}
+
+.reperes {
+  list-style: none;
+  margin-left: 0.5rem;
+  border-left: 1px solid var(--taupe);
+}
+
+.reperes li {
+  position: relative;
+  padding: 0 0 1.2rem 1.8rem;
+}
+
+.reperes li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0.65rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--rouille);
+}
+
+.reperes b {
+  margin-right: 0.7rem;
+  font-family: var(--titre);
+  font-size: 1.4rem;
+  color: var(--rouille);
+}
+
+.precedent-suivant {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.precedent-suivant a {
+  font-family: var(--titre);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--brun);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rouille);
+  transition: color 0.2s;
+}
+
+.precedent-suivant a:hover { color: var(--rouille); }
+/* ---------- Pluie de danseurs ---------- */
+.pluie-danseurs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;   /* on peut cliquer à travers */
+  z-index: 5;             /* sous le menu, au-dessus du contenu */
+}
+
+.danseur {
+  position: absolute;
+  top: -160px;
+  animation-name: chute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+}
+
+.danseur svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: center;
+  animation: balance 4s ease-in-out infinite alternate;
+  animation-delay: var(--decalage);
+}
+
+@keyframes chute {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: var(--opacite); }
+  90%  { opacity: var(--opacite); }
+  100% { transform: translate(var(--derive), calc(100vh + 200px)); opacity: 0; }
+}
+
+@keyframes balance {
+  from { transform: rotate(-25deg); }
+  to   { transform: rotate(25deg); }
+}
