@@ -1,3 +1,4 @@
+/*thème général couleurs du site*/
 :root {
   --creme: #f7f1e8;
   --sable: #eadfce;
@@ -10,8 +11,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/*déroulement du site - scénario*/
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
+/*--caracteristiques du haut de la page*/
 body {
   font-family: var(--corps);
   font-weight: 300;
@@ -20,7 +23,7 @@ body {
   background: var(--creme);
 }
 
-/* ---------- Menu ---------- */
+/* ---------- Menu principal = haut de la page---------- */
 .menu {
   position: sticky;
   top: 0;
@@ -33,7 +36,7 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(43, 33, 26, 0.1);
 }
-
+/*caractéristique du logo mouvement*/
 .logo {
   font-family: var(--titre);
   font-style: italic;
@@ -43,7 +46,7 @@ body {
   text-decoration: none;
 }
 
-.liens a {
+.liens a { /*deux mots qui renvoient à des pages dans le site*/
   margin-left: 2rem;
   font-size: 0.8rem;
   font-weight: 500;
@@ -54,7 +57,7 @@ body {
   transition: color 0.2s;
 }
 
-.liens a:hover { color: var(--rouille); }
+.liens a:hover { color: var(--rouille); } /*changement de couleur quand on souhaite cliquer dessus*/
 
 /* ---------- Bandeau d'accueil ---------- */
 .hero {
@@ -69,30 +72,30 @@ body {
   padding: 4rem 1.5rem;
   background: radial-gradient(circle at 50% 40%, var(--creme), var(--sable));
 }
-
+/*caracteristiques du ruban 3 lignes*/
 .ruban {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
-
+/*animation du ruban*/
 .ruban path {
   fill: none;
   stroke: var(--rouille);
   stroke-width: 1.5;
-  stroke-linecap: round;
+  stroke-linecap: round; 
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   opacity: 0.55;
-  animation: trace 4s ease-out forwards;
+  animation: trace 4s ease-out forwards; /*durée de l'animation*/
 }
 
 .ruban path:nth-child(2) { animation-delay: 0.4s; opacity: 0.4; }
 .ruban path:nth-child(3) { animation-delay: 0.8s; opacity: 0.25; }
 
 @keyframes trace { to { stroke-dashoffset: 0; } }
-
+/*sert a avoir les cases pour chaque personnes*/
 .hero > :not(.ruban) { position: relative; animation: apparition 1s ease both; }
 .hero h1 { animation-delay: 0.15s; }
 .hero .sous-titre { animation-delay: 0.3s; }
@@ -103,15 +106,17 @@ body {
   to { opacity: 1; transform: none; }
 }
 
+/*petite texte au dessus du titre principal*/
 .etiquette {
   margin-bottom: 1.5rem;
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+  letter-spacing: 0.35em; /*espacement*/
+  text-transform: uppercase; /*majuscule*/
   color: var(--rouille);
 }
 
+/*grand titre de l'en-tête*/
 .hero h1 {
   font-family: var(--titre);
   font-weight: 500;
@@ -122,12 +127,13 @@ body {
 
 .hero h1 em { font-style: italic; color: var(--rouille); }
 
+/*phrase d'accroche et d'introduction sous le titre*/
 .sous-titre {
   max-width: 540px;
   margin-bottom: 2.5rem;
   font-size: 1.15rem;
 }
-
+ /*bouton forme carré avec bords arrondis*/
 .bouton {
   display: inline-block;
   padding: 0.95rem 2.4rem;
@@ -136,28 +142,29 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--creme);
-  text-decoration: none;
+  text-decoration: none; 
   background: var(--brun);
   border-radius: 999px;
-  transition: background 0.25s, transform 0.25s;
+  transition: background 0.25s, transform 0.25s; /*changement en douceur*/
 }
 
 .bouton:hover { background: var(--rouille); transform: translateY(-3px); }
 
-/* ---------- Bandeau défilant ---------- */
+/* ---------- Bandeau défilant avec nom des chorégraphes---------- */
+/*cadre du bandeau*/
 .bandeau {
   overflow: hidden;
   padding: 1.1rem 0;
   background: var(--brun);
   color: var(--sable);
 }
-
+/*défiler des noms alignés*/
 .defile {
   display: flex;
   width: max-content;
   animation: defile 35s linear infinite;
 }
-
+/*chaque nom des chorégraphes*/
 .defile span {
   padding: 0 2rem;
   font-family: var(--titre);
@@ -166,17 +173,18 @@ body {
   white-space: nowrap;
 }
 
-.defile span::after { content: "✦"; margin-left: 4rem; color: var(--rouille); font-style: normal; }
+.defile span::after { content: "✦"; margin-left: 4rem; color: var(--rouille); font-style: normal; } /*ajoute une étoile entre les noms pour les séparer*/
 
-@keyframes defile { to { transform: translateX(-50%); } }
+@keyframes defile { to { transform: translateX(-50%); } } /*définition de l'animation = fait glisser*/
 
 /* ---------- Sections ---------- */
+/*bloc de contenu centré sur la page*/
 .bloc {
   max-width: 1100px;
   margin: 0 auto;
   padding: 6rem 1.5rem 1rem;
 }
-
+/*caractéristiques des titres de section*/
 .bloc h2 {
   font-family: var(--titre);
   font-weight: 500;
@@ -185,17 +193,19 @@ body {
   margin-bottom: 2.5rem;
   text-align: center;
 }
-
+/*texte centré*/
 .centre { text-align: center; }
 .centre p { max-width: 640px; margin: 0 auto; font-size: 1.15rem; }
 
-/* ---------- Cartes ---------- */
-.grille {
-  display: grid;
+/* ---------- Cartes : les 6 petites rubriques dans la page d'accueil ---------- */
+
+.grille { /* le grille place les cartes en colonnes selon la taille de l'écran*/
+  display: grid; /*le plus de colonnes possible visible*/
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1.5rem; /*espace entre les cartes*/
 }
 
+/*bloc de chaque chorégraphes*/
 .carte {
   position: relative;
   padding: 2.2rem 2rem;
@@ -204,12 +214,14 @@ body {
   transition: background 0.35s, color 0.35s, transform 0.35s;
 }
 
+/*changement de couleur au survol de la carte*/
 .carte:hover {
   background: var(--brun);
   color: var(--creme);
   transform: translateY(-8px);
 }
 
+/*indication du numéro de la carte de 1 à 6*/
 .num {
   display: block;
   margin-bottom: 0.5rem;
@@ -221,26 +233,27 @@ body {
   color: var(--rouille);
 }
 
+/*titre de la carte, c'est le nom du chorégraphe*/
 .carte h3 {
   font-family: var(--titre);
   font-weight: 600;
   font-size: 1.7rem;
   line-height: 1.2;
-  text-align: center;
+  text-align: center; /*texte centré*/
   margin-bottom: 0.3rem;
 }
 
-.infos {
+.infos { /*description du bloc infos, sous le titre*/
   text-align: center;
   margin-bottom: 1rem;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: uppercase; /*tout en majuscule*/
   color: var(--taupe);
 }
 
-.oeuvre {
+.oeuvre { /* description du bloc exemple oeuvre artistiques, en italique*/
   margin-top: 1.2rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(168, 146, 122, 0.5);
@@ -250,17 +263,18 @@ body {
   color: var(--rouille);
 }
 
-.carte:hover .oeuvre { color: #e9a283; }
+.carte:hover .oeuvre { color: #e9a283; } /*couleur qui reste identique*/
 
 /* ---------- Pied de page ---------- */
-footer {
+/*position des éléments */
+footer { 
   margin-top: 6rem;
   padding: 3rem 1rem;
-  text-align: center;
-  background: var(--sable);
+  text-align: center; /*texte centré*/
+  background: var(--sable); /*couleur du fond*/
 }
 
-footer .logo { margin-bottom: 0.3rem; }
+footer .logo { margin-bottom: 0.3rem; } /*caractéristique du texte*/
 
 /* ---------- Téléphone ---------- */
 @media (max-width: 600px) {
@@ -273,8 +287,8 @@ footer .logo { margin-bottom: 0.3rem; }
   * { animation: none !important; transition: none !important; }
   .ruban path { stroke-dashoffset: 0; }
 }
-/* ---------- Liens des cartes ---------- */
-.lien-fiche {
+/* ---------- Liens des cartes quand on veut cliquer dessus---------- */
+.lien-fiche { /*changement de couleur*/
   display: block;
   margin-top: 1.4rem;
   text-align: center;
@@ -297,6 +311,7 @@ footer .logo { margin-bottom: 0.3rem; }
 .carte:hover .lien-fiche { color: var(--creme); }
 
 /* ---------- Pages des chorégraphes ---------- */
+/*fiche description nom*/
 .fiche-hero {
   text-align: center;
   padding: 6rem 1.5rem 4rem;
@@ -311,14 +326,14 @@ footer .logo { margin-bottom: 0.3rem; }
   line-height: 1.05;
   margin: 0.5rem 0 1.2rem;
 }
-
+/*sous-titre de la rubrique*/
 .fiche-hero .sous-titre {
-  max-width: 600px;
+  max-width: 600px; /*taille*/
   margin: 0 auto;
-  font-family: var(--titre);
-  font-style: italic;
+  font-family: var(--titre); /*typographie*/
+  font-style: italic; 
   font-size: 1.5rem;
-  color: var(--rouille);
+  color: var(--rouille); /*couleur*/
 }
 
 .fiche {
@@ -327,6 +342,7 @@ footer .logo { margin-bottom: 0.3rem; }
   padding: 4rem 1.5rem 0;
 }
 
+/*bloc fiche*/
 .bloc-fiche { margin-bottom: 3.5rem; }
 
 .bloc-fiche h2 {
@@ -341,6 +357,7 @@ footer .logo { margin-bottom: 0.3rem; }
 
 .bloc-fiche p { margin-bottom: 1rem; font-size: 1.1rem; }
 
+/*fiche oeuvres marquantes 4 sous-rubriques*/
 .oeuvres { list-style: none; display: grid; gap: 1rem; }
 
 .oeuvres li {
@@ -357,20 +374,21 @@ footer .logo { margin-bottom: 0.3rem; }
   font-weight: 600;
   font-size: 1.4rem;
 }
-
+/*caractéristiques années*/
 .oeuvres .annee {
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: var(--rouille);
 }
-
+/*rubrique repères chronologiques*/
+/*liste des rèperes comme une frise, une ligne à gauche*/
 .reperes {
   list-style: none;
   margin-left: 0.5rem;
   border-left: 1px solid var(--taupe);
 }
-
+/*chaque repère de la liste*/
 .reperes li {
   position: relative;
   padding: 0 0 1.2rem 1.8rem;
@@ -386,7 +404,7 @@ footer .logo { margin-bottom: 0.3rem; }
   border-radius: 50%;
   background: var(--rouille);
 }
-
+/*date ou année en gras*/
 .reperes b {
   margin-right: 0.7rem;
   font-family: var(--titre);
@@ -394,6 +412,7 @@ footer .logo { margin-bottom: 0.3rem; }
   color: var(--rouille);
 }
 
+/*flèches indiquant page suivante ou précédente */
 .precedent-suivant {
   display: flex;
   justify-content: space-between;
@@ -408,11 +427,12 @@ footer .logo { margin-bottom: 0.3rem; }
   font-size: 1.3rem;
   color: var(--brun);
   text-decoration: none;
-  border-bottom: 1px solid var(--rouille);
-  transition: color 0.2s;
+  border-bottom: 1px solid var(--rouille); 
+  transition: color 0.2s; 
 }
 
-.precedent-suivant a:hover { color: var(--rouille); }
+.precedent-suivant a:hover { color: var(--rouille); } /*couleur de la flèche*/
+
 /* ---------- Pluie de danseurs ---------- */
 .pluie-danseurs {
   position: fixed;
@@ -425,12 +445,12 @@ footer .logo { margin-bottom: 0.3rem; }
 .danseur {
   position: absolute;
   top: -160px;
-  animation-name: chute;
+  animation-name: chute; /*permet la chute du haut vers le bas*/
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 
 }
-
+/*design des danseurs*/
 .danseur svg {
   display: block;
   width: 100%;
@@ -453,6 +473,6 @@ footer .logo { margin-bottom: 0.3rem; }
 }
 
 @keyframes balance {
-  from { transform: rotate(-25deg); }
+  from { transform: rotate(-25deg); } /*rotation des danseurs*/
   to   { transform: rotate(25deg); }
 }
